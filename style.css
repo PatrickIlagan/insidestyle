@@ -144,15 +144,28 @@ img {
     align-items: center;
     justify-content: space-between;
     padding: 0 3rem;
+    transition: all 0.5s ease;  
+}
+
+.header .header_wrapper.open {
+    background-color: var(--clr-tertiary);
+    border-radius: 10rem;
+    padding: 2rem;
+    position: fixed;
+    width: 80rem;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    z-index:99;
+    transition: all 0.5s ease;
+    border: 1px solid var(--clr-primary);
 }
 
 .header .header_nav {
     display: flex;
     gap: 3rem;
 }
-
-
-
 
 .header .header_nav li a {
     color: var(--clr-dark);
@@ -181,9 +194,20 @@ img {
     background-color: var(--clr-primary);
     transition: all 0.5s ease;
 }
-@media screen and (min-width:600px) and (max-width:800px){
-    .html {
-        overflow: hidden;
+@media screen and (min-width:400px) and (max-width:600px) {
+    .header {
+        width: 100%;
+        position: fixed;
+    }
+    .header .header_wrapper {
+        transition: none;
+    }
+    .header .header_wrapper.open {
+        padding: 0 3rem;
+        border-radius: unset;
+        position: unset;
+        border: none;
+        transition: none;
     }
     .header .toggle_menu {
         display: flex;
@@ -191,6 +215,82 @@ img {
         gap: 0.5rem;
     }
 
+    
+    .header .header_nav {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        background-color: var(--clr-tertiary);
+        padding: 3rem;
+        width: 50%;
+        top: 0;
+        margin-top: 11rem;
+        height: 100vh;
+        right: -100%;
+        transition: all 0.5s ease;
+    }
+
+    .header .header_nav.open {
+        right: 0;
+    }
+
+    .header .toggle_menu.open span:first-child {
+        transform: translate(0, 10px) rotate(225deg);
+        transition: all 0.5s ease;
+    }
+
+    .header .toggle_menu.open span:nth-child(2) {
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+    .header .toggle_menu.open span:last-child {
+        transform: translate(0, -6px) rotate(-225deg);
+        transition: all 0.5s ease;
+    }
+
+    .backdrop {
+        display: block;
+        background-color: rgba(0, 0, 0, 0);
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 10;
+        transition: 0.5s ease;
+    }
+
+    .backdrop.open {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 10;
+        transition: 0.5s ease;
+    }
+}
+@media screen and (min-width:600px) and (max-width:800px){
+    .header {
+        width: 100%;
+        position: fixed;
+    }
+    .header .header_wrapper {
+        transition: none;
+    }
+    .header .header_wrapper.open {
+        padding: 0 3rem;
+        border-radius: unset;
+        position: unset;
+        border: none;
+        transition: none;
+    }
+    .header .toggle_menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    
     .header .header_nav {
         display: flex;
         flex-direction: column;
@@ -247,12 +347,19 @@ img {
 }
 @media screen and (max-width:520px) {
     .header {
-        position: fixed;
         width: 100%;
-        left: 0;
-        background-color: var(--clr-tertiary);
+        position: fixed;
     }
-
+    .header .header_wrapper {
+        transition: none;
+    }
+    .header .header_wrapper.open {
+        padding: 0 3rem;
+        border-radius: unset;
+        position: unset;
+        border: none;
+        transition: none;
+    }
     .header .toggle_menu {
         display: flex;
         flex-direction: column;
@@ -344,7 +451,18 @@ img {
 }
 
 /* ------homeBannerTop MOBIL-------- */
+@media screen and (min-width:400px) and (max-width:600px) {
+    .homeBannerTop {
+        padding-top: 12rem;
+    }
+}
+@media screen and (min-width:600px) and (max-width: 800px) {
+    .homeBannerTop {
+        padding-top: 12rem;
+    }
+}
 @media screen and (max-width:520px) {
+    
     .homeBannerTop {
         padding-top: 12rem;
     }
@@ -418,6 +536,18 @@ img {
 }
 
 /* --------homeBannerBottom Mobil----------- */
+@media screen and (min-width:400px) and (max-width:600px) {
+    .homeBannerBottom {
+        margin: 0 2rem;
+    }
+    .homeBannerBottom_img img {
+        display: none;
+    }
+    .homeBannerBottom .homeBannerBottom_wrapper {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+}
 @media screen and (min-width:600px) and (max-width: 800px) {
     .homeBannerBottom {
         margin: 0 2rem;
@@ -496,7 +626,17 @@ img {
 }
 
 /* -------------homeAbout Mobil-------------- */
+@media screen and (min-width:400px) and (max-width:600px) {
+    .homeAbout .container h3::before {
+        width: 25rem;
+    }
+    .homeAbout .homeAbout_wrapper {
+        flex-direction: column;
+        margin: 0 1rem;
+    }
+}
 @media screen and (min-width: 600px) and (max-width:800px) {
+
     .homeAbout .container h3::before {
         width: 32rem;
     }
@@ -506,6 +646,7 @@ img {
     }
 }
 @media screen and (max-width:520px) {
+
     .homeAbout .homeAbout_wrapper {
         flex-direction: column;
         margin: 0 1rem;
@@ -548,13 +689,20 @@ img {
 }
 
 /* -------------homeCatalog MOBIL------------- */
+@media screen and (min-width:400px) and (max-width:600px) {
 
-@media screen and (min-width: 600px) and (max-width:800px) {
     .homeCatalog .container h3::after {
-        width: 42rem;
+        width: 36rem;
+    }
+}
+@media screen and (min-width: 600px) and (max-width:800px) {
+
+    .homeCatalog .container h3::after {
+        width: 46rem;
     }
 }
 @media screen and (max-width:520px) {
+
     .homeCatalog .container h3::after {
         width: 32rem;
     }
@@ -605,6 +753,25 @@ img {
 }
 
 /* --------------aboutBanner MOBIL---------- */
+@media screen and (min-width: 400px) and (max-width:600px){
+    .aboutBanner .aboutBanner_wrapper {
+        grid-template-columns: 1fr;
+        margin: 0 1rem;
+    }
+    .aboutBanner .aboutBanner_img {
+        display: none;
+    }
+    .aboutBanner .aboutBanner_text h2 {
+        padding-bottom: 4rem;
+    }
+
+    .aboutBanner .aboutBanner_icons {
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 3rem;
+        font-size: 3.5rem;
+    }
+}
 @media screen and (min-width: 600px) and (max-width:800px) {
     .aboutBanner .aboutBanner_wrapper {
         grid-template-columns: 1fr;
@@ -736,7 +903,22 @@ img {
 }
 
 /* ------------CATALOG THEME MOBIL------------ */
- 
+@media screen and (min-width:400px) and (max-width:600px) {
+
+    .catalogTheme h1 {
+        line-height: 1;
+    }
+
+    .catalogTheme .catalog_item {
+        padding: 5rem 4rem;
+        gap: 1rem;
+    }
+
+    .catalogTheme .catalog_item .catalog_text h2 {
+        margin: 0;
+        font-size: 6rem;
+    }
+}
 @media screen and (max-width:520px) {
     .catalogTheme h1 {
         line-height: 1;
@@ -779,6 +961,24 @@ img {
 }
 
 /* --------------UPDATES BANNER MOBIL------------ */
+@media screen and (min-width:400px) and (max-width:600px) {
+    .updatesBanner {
+        padding: 15rem 0.75rem 4rem 0.75rem;
+    }
+    .updatesBanner .updatesBanner_wrapper {
+        grid-template-columns: 1fr;
+
+    }
+}
+@media screen and (min-width:600px) and (max-width:800px) {
+    .updatesBanner {
+        padding: 15rem 0.75rem 4rem 0.75rem;
+    }
+    .updatesBanner .updatesBanner_wrapper {
+        grid-template-columns: 1fr;
+
+    }
+}
 @media screen and (max-width:520px) {
     .updatesBanner {
         padding: 15rem 0.75rem 4rem 0.75rem;
@@ -848,6 +1048,26 @@ img {
 }
 
 /* -----------------UPDATES DESIGNS MOBIL------------- */
+@media screen and (min-width:400px) and (max-width:600px) {
+    .updatesDesigns {
+        padding: 3rem 1.5rem;
+    }
+
+    .updatesDesigns .updatesDesigns_wrapper,
+    .updatesDesigns .updatesDesigns_designs_items {
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (min-width:600px) and (max-width:800px) {
+    .updatesDesigns {
+        padding: 3rem 1.5rem;
+    }
+
+    .updatesDesigns .updatesDesigns_wrapper,
+    .updatesDesigns .updatesDesigns_designs_items {
+        grid-template-columns: 1fr;
+    }
+}
 @media screen and (max-width:520px) {
     .updatesDesigns {
         padding: 3rem 1.5rem;
@@ -898,6 +1118,16 @@ img {
 }
 
 /* -----------------UPDATES PROJECTS MOBIL-------------- */
+@media screen and (min-width:400px) and (max-width:600px) {
+    .updatesProjects h4 {
+        margin-bottom: 6rem;
+    }
+}
+@media screen and (min-width:600px) and (max-width:800px) {
+    .updatesProjects h4 {
+        margin-bottom: 6rem;
+    }
+}
 @media screen and (max-width:520px) {
     .updatesProjects h4 {
         margin-bottom: 6rem;
@@ -982,10 +1212,51 @@ img {
 
 
 /* ------------CONTACT FORM MOBIL-------------------- */
+@media screen and (min-width:400px) and (max-width:600px) {
+    .contactForm {
+        height: 110vh;
+        padding-top: 18rem;
+        max-width: 100%;
+    }
+    .contactForm .contactForm_wrapper {
+        gap: 6rem;
+    }
+    .contactForm .contactForm_form input {
+        width: 48rem;
+    }
+    .contactForm .contactForm_info {
+        padding: 2rem;
+        width: 100%;
+    }
+    .contactForm .contactForm_container {
+        margin: 0 7.2rem;
+    }
+}
+@media screen and (min-width:600px) and (max-width:800px) {
+    .contactForm {
+        height: 110vh;
+        padding-top: 18rem;
+        max-width: 100%;
+    }
+    .contactForm .contactForm_wrapper {
+        gap: 6rem;
+    }
+    .contactForm .contactForm_form input {
+        width: 55rem;
+    }
+    .contactForm .contactForm_info {
+        padding: 2rem;
+        width: 100%;
+    }
+    .contactForm .contactForm_container {
+        margin: 0 11.2rem;
+    }
+}
 @media screen and (max-width:520px) {
     .contactForm {
         height: 110vh;
         padding-top: 18rem;
+        max-width: 100%;
     }
     .contactForm .contactForm_wrapper {
         gap: 6rem;
@@ -1047,6 +1318,17 @@ img {
 }
 
 /* -----------FOOTER MOBIL------------ */
+@media screen and (min-width:400px) and (max-width:600px) {
+    .footer .footer_wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer .footer_icons {
+        font-size: 3rem;
+        gap: 3rem;
+    }
+}
 
 @media screen and (min-width:600px) and (max-width: 800px){
     .footer .footer_wrapper {
