@@ -420,6 +420,81 @@ img {
     }
 }
 
+@media screen and (min-width:800px) and (max-width:900px){
+    .header {
+        width: 100%;
+        position: fixed;
+    }
+    .header .header_wrapper {
+        transition: none;
+    }
+    .header .header_wrapper.open {
+        padding: 0 3rem;
+        border-radius: unset;
+        position: unset;
+        border: none;
+        transition: none;
+    }
+    .header .toggle_menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .header .header_nav {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        background-color: var(--clr-tertiary);
+        padding: 3rem;
+        width: 50%;
+        top: 0;
+        margin-top: 11rem;
+        height: 100vh;
+        right: -100%;
+        transition: all 0.5s ease;
+    }
+
+    .header .header_nav.open {
+        right: 0;
+    }
+
+    .header .toggle_menu.open span:first-child {
+        transform: translate(0, 10px) rotate(225deg);
+        transition: all 0.5s ease;
+    }
+
+    .header .toggle_menu.open span:nth-child(2) {
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+    .header .toggle_menu.open span:last-child {
+        transform: translate(0, -6px) rotate(-225deg);
+        transition: all 0.5s ease;
+    }
+
+    .backdrop {
+        display: block;
+        background-color: rgba(0, 0, 0, 0);
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 10;
+        transition: 0.5s ease;
+    }
+
+    .backdrop.open {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 10;
+        transition: 0.5s ease;
+    }
+}
+
 /* -------------------HOME BANNER TOP--------------- */
 .homeBannerTop {
     min-height: 100px;
@@ -462,7 +537,11 @@ img {
     }
 }
 @media screen and (max-width:520px) {
-    
+    .homeBannerTop {
+        padding-top: 12rem;
+    }
+}
+@media screen and (min-width:800px) and (max-width:900px) {
     .homeBannerTop {
         padding-top: 12rem;
     }
@@ -580,6 +659,25 @@ img {
     }
 
 }
+@media screen and (min-width:800px) and (max-width:900px) {
+    .homeBannerBottom {
+        margin: 0 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .homeBannerBottom .homeBannerBottom_wrapper {
+        grid-template-columns: 1fr;
+        grid-gap: 4rem;
+    }
+
+    .homeBannerBottom .homeBannerBottom_img img:last-child {
+        top: 0;
+    }
+
+    .homeBannerBottom .homeBannerBottom_main li:nth-child(3)::before {
+        width: 14rem;
+    }
+}
 
 /* --------------HOME ABOUT------------ */
 .homeAbout {
@@ -634,6 +732,7 @@ img {
         flex-direction: column;
         margin: 0 1rem;
     }
+
 }
 @media screen and (min-width: 600px) and (max-width:800px) {
 
@@ -643,6 +742,10 @@ img {
     .homeAbout .homeAbout_wrapper {
         flex-direction: column;
         margin: 0 1rem;
+    }
+    .homeAbout .homeAbout_img img {
+        padding: 0 2rem;
+        width: 40rem;
     }
 }
 @media screen and (max-width:520px) {
@@ -654,6 +757,17 @@ img {
 
     .homeAbout .container h3::before {
         width: 18rem;
+    }
+
+    
+}
+@media screen and (min-width:800px) and (max-width:900px) {
+    .homeAbout .homeAbout_text {
+        max-width: 43rem;
+    }
+
+    .homeAbout .container h3::before {
+        width: 50rem;
     }
 }
 
